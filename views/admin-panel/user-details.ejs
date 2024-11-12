@@ -1,0 +1,44 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="\styles\admin.css">
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+<div>
+    <center>
+        <h1 class="user-details-adminpage">USER DETAILS</h1>
+    </center>
+    <br>
+    <div class="">
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Annual Income</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col">Operations</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i = 0; i < allUsers.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= [i+1] %></th>
+                    <td><%= allUsers[i].name %></td>
+                    <td><%= allUsers[i].email %></td>
+                    <td>Phone Number</td>
+                    <td><%=allUsers[i].income; %></td> 
+                    <td><%=allUsers[i].date; %></td> 
+                    <td>
+                        <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-eye"></i></a>
+                    </td>
+                    
+                  </tr>
+                  <% } %>
+              </tbody>
+        </table>
+    </div>
+</div>
+

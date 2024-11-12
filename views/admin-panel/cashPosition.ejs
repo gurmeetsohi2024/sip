@@ -1,0 +1,29 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+<br>
+<div class="cointainer-fluid ">
+    <div class="row ">
+        <br>
+        <br>
+        <br>
+        <div class="cash_update">
+            <center><h3>CASH POSTION </h3>
+                <br>
+                <br>
+            <div class="col ">
+                <form action="cashHoldingPost" method="post">
+                     <h4>Last cash Holding amount :<%= cashItem[0] %></h4>
+                    <input class="form-deco" type="text" name="cash" placeholder="Enter New Cash Holding Amount">
+                    <br>
+                    <br>
+                    <button class="btn btn-success button-deco">Submit</button>
+                </form>
+            </div>
+        </div>
+        </center>
+    </div>
+</div>

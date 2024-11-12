@@ -1,0 +1,41 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <center>
+                <h2>Create SIP</h2>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <center>
+                <form action="/updateSipPost" method="post">
+
+                    <input type="text" name="sipid" value="<%= sipData[0]._id %>" hidden>
+                    <input class="form-deco" type="text" name="name" value="<%= sipData[0].name %>" placeholder="Give a name for the SIP">
+                    <br>
+                    <lebel>Select the status of SIP</lebel>
+                    <div>
+                        <input type="radio" id="statusON" name="status" value="active" checked />
+                        <label for="huey">Active</label>
+                        <input type="radio" id="statusON" name="status" value="inactive" checked />
+                        <label for="huey">Inactive</label>
+                    </div>
+                    <br>
+                    <input type="text" name="transactions" hidden>
+                    <lebel>Details of SIP</lebel><br>
+                    <textarea class="textarea-deco" name="details" id="" rows="4" cols="50" placeholder="Write about the SIP" ><%= sipData[0].details %></textarea>
+                    <br>
+                  <button type="submit" class="btn btn-success btn-lg button-deco">Submit</button>
+                </form>
+            </center>
+        </div>
+    </div>
+</div>

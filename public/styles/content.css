@@ -1,0 +1,649 @@
+body{
+    margin: 0 0;
+    padding: 0 0;
+    height: auto;
+    width: 100%;
+    /* background-image: url(/img/subtle-prism.svg); */
+    background-repeat: repeat-y repeat-x;
+}
+#carasoul-section{
+    /* background-image: url(/img/wave-blue.svg); */
+    background-repeat: no-repeat;
+    /* background-image: linear-gradient(rgb(31, 27, 27), rgb(4, 168, 80)); */
+    /* background-image: url(/img/76824.jpg); */
+    /* background: rgb(101,9,176);
+background: radial-gradient(circle, rgba(101,9,176,1) 79%, rgba(148,114,199,1) 100%); */
+    text-align: center;
+    height: 40vw;
+    padding-top: 7%;
+    padding-left: 7%;
+    padding-right: 7%;
+    color: rgb(16, 1, 1);
+}
+#header-section{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.navbar-header{
+    color: rgb(252, 11, 79);
+}
+.pre-nav-container{
+    color: white;
+    background-color:rgb(57, 49, 49) ;
+    
+    font-size: 18px;
+    padding-top: 0.21%;
+}
+#pre-nave-address{
+    text-align: left;
+}
+#pre-nave-address h4{
+   margin-left: 50px;
+   /* font-family: "Open Sans", sans-serif; */
+   font-family: "Playwrite DE Grund", cursive;
+    font-size: 15px;
+    padding-top: 5px;  
+    padding-bottom: 5px;  
+}
+.pre-nav-logo{
+    font-size:22px;
+    padding-top: 5px;
+    margin-right: 5px;
+}
+.carasoul-background{
+    background-color: aqua;
+}
+.header-h2{
+    font-size: 4rem;
+    font-family: "ubuntu";
+    color:rgb(6, 179, 61) ;
+    text-transform: uppercase;
+    padding-bottom: 1.5%;
+    text-shadow: 1.25px 1.25px #fffefe;
+    /* border: 5px solid; */
+    /* border-image: linear-gradient(#f6b73c, #4d9f0c) 10; */
+    /* border-radius: 25px; */
+    
+    
+}
+.header-h5{
+    font-size: 1.25rem;
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+  font-weight: 250;
+  font-style:backdrop;
+}
+.header-h5-helper{
+    font-size: 1.75rem;
+    font-family: "Open";
+    color: rgb(14, 1, 1);
+}
+.header-carasoul{
+    background-color: #0047AB;
+
+}
+.main-component{
+    padding-top: 2%;
+    background-color: #0047AB;
+    color: white;
+    /* background-image: linear-gradient( white,#0047AB); */
+    /* background-color:rgb(4, 168, 80) ; */
+    transition: 0.5 s;
+}
+.main-component li:hover{
+    transform: scale(1.5);
+}
+.main-header{
+    font-size: 1.75rem;
+    font-family: "Ubuntu";
+    font-weight: 200;
+}
+.main-component h2{
+    font-size: 2.0rem;
+    /* font-weight: 400; */
+    font-family: "Ubuntu";
+    background-color: rgb(4, 168, 80);
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 700px;
+}
+.main-component li{
+   font-family: "Playwrite DE Grund", cursive;
+   font-size: 18px;
+}
+.main-packages{
+   background-image: linear-gradient(blue,black);
+   opacity: 80%;
+   border-radius: 15px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin: 5% 10%;
+    color: white;
+}
+.explore-button{
+    width: 450px;
+}
+.main-packages h3{
+    text-transform: uppercase;
+    font-family: "Ubuntu","san-serif";
+}
+.main-packages h4{
+    font-family: "Playwrite DE Grund", cursive;
+}
+#footer{
+    /* background-image: url(/img/subtle-prism.svg); */
+    background-color: rgb(16, 16, 49);
+    opacity: 0.85;
+}
+.footer-fst-div{
+    /* background-color:#0047AB ; */
+    /* background-image: url(/img/subtle-prism.svg); */
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+}
+.footer-logo i{
+    float:inline-end;
+}
+.footer-second-div{
+    /* background-color: rgb(4, 168, 80); */
+    background-image: url(/img/wave-blue-background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Montserrat";
+    font-size: 20px;
+    text-align: center;
+    padding-top: 3%;
+    color: white;
+
+}
+.footer-second-div h3{
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: rgb(239, 247, 2);
+    color: white;
+    font-family: "Montserrat";
+    font-size: 18px;
+    transition: 0.3s;
+    
+}
+.footer-second-div h3:hover{
+    transform: scale(1.25);
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-decoration:whitesmoke;
+}
+.footer-last-div{
+    background-color:#0047AB ;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 18px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+}
+/* .footer-last-div h5{
+    margin-top: 2%;
+} */
+.main-product-heading h2{
+    
+    font-family: "Ubuntu",bold;
+    font-weight: 500;
+  ;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 250px;
+}
+#data-for-package{
+    /* background-image: linear-gradient( rgb(31, 27, 27),rgb(4, 168, 80)); */
+    /* background-color: white; */
+    /* background-image: url(/img/wintery-sunburst.svg); */
+    /* background-image: url(/img/subtle-prism.svg); */
+    
+}
+.login-background{
+    height: auto;
+    width: 450px;
+    position: absolute;
+    float: right;
+    margin-right: 0;
+    display: flex;
+    align-items: right;
+}
+.callback-section h4{
+    font-family: "Playwrite DE Grund", cursive;
+    font-size: 35px;
+    text-transform: lowercase;
+    
+   
+}
+
+.form-deco{
+    width: 250px;
+    height: 35px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: 2px solid;
+    border-radius: 25px;
+    color: black;
+}
+.textarea-deco{
+    width: 250px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: 2px solid;
+    border-radius: 25px;
+    color: black;
+}
+.button-deco{
+    width: 250px;
+    border: 2px soild white;
+    border-radius: 25px;
+    margin-top: 1%;
+}
+.form-adjustment{
+    
+    margin-left: 5px;
+}
+.tc-image img{
+    margin-top: 5%;
+    /* margin-right: 55px; */
+}
+.terms-cdn{
+    font-family: "Playwrite DE Grund", cursive;
+    font-size: 35px;
+    text-transform: lowercase;
+    margin-top: 85px;
+}
+.signup-header{
+    font-family: "Playwrite DE Grund", cursive;
+    font-size: 35px;
+    text-transform: lowercase;
+}
+.footer-text{
+    text-decoration: none;
+    color: white;
+}
+.footer-text :hover{
+    text-decoration: none;
+    color: white;
+}
+.userPackages{
+    background-color: rgb(216, 213, 213);
+    margin-left: 6%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    width: 550px;
+    border-radius: 25px;
+    text-align: center;
+    
+    
+}
+.package-header{
+    background-color: rgb(166, 166, 250);
+    margin-top: 3%;
+    border-radius: 25px;
+    
+    font-family: "Playwrite DE Grund", cursive;
+    font-size: 35px;
+    text-transform: lowercase;
+    
+}
+.package-header-highlight{
+    background-color: #64a3fc;
+    border-radius: 25px;
+    
+}
+.header-login-menu h5{
+    /* text-decoration: none; */
+    color:white;
+}
+#login{
+    margin-top: 14%;
+    /* text-decoration: none; */
+}
+.companyDetails{
+    width: 150px;
+    justify-content: space-evenly;
+}
+.companyDetails h5{
+    color: red;
+}
+.companyData{
+    justify-content: space-around;
+}
+.payment-card{
+    margin-top: 10%;
+    margin-left: 7%;
+    width: 70%;
+    height: 250px;
+}
+.landing-button{
+    background-color: rgb(93, 252, 93);
+    
+}
+#landing-header{
+    font-family: "Montsrrat";
+    font-size: 75px;
+    font-weight: 700;
+    font-weight: 700;
+}
+#landing-header-2{
+    font-family: "Montsrrat";
+    font-size: 75px;
+    font-weight: 700;
+    font-weight: 700;
+    color:#0047AB ;
+}
+#landing-page-img{
+    margin-left: -35px;
+}
+.landing-lighlights{
+    border: solid 2px rgb(9, 251, 45);
+    border-radius: 25px;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    width: 80%;
+    height: 350px;
+    background-color: #0047AB;
+    color: white;
+}
+.landing-lighlights-2{
+    border: solid 2px rgb(55, 50, 225);
+    border-radius: 25px;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    width: 80%;
+    height: 350px;
+    color: #0047AB;
+}
+.landing-lighlights-3{
+    border: solid 2px rgb(1, 0, 13);
+    border-radius: 25px;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    width: 80%;
+    height: 350px;
+    background-color: #0047AB;
+    color: white;
+}
+#fm-highlights{
+    text-align: left;
+    margin-left: 40px;
+}
+.approach-header h3{
+    background-color: #0047AB;
+    /* display: inline-block; */
+    padding: 0.5% 1%;
+    color: white;
+    border-radius: 15px;
+   
+   
+}
+.Investment-famework{
+    display: inline;
+}
+/* .fa-approach{
+    background-color: #0047AB;
+    color: white;
+    padding: 0.5% 1%;
+    font-family: "ubuntu";
+   
+} */
+
+.dic-color{
+    background-color: #0047AB;
+    margin-left: -55px;
+    color: white;
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
+    padding-left: 0.25;
+    border-radius: 5px;
+}
+.content-class{
+    width: 80%;
+    margin-left: 5%;
+}
+.dic-color-2{
+    background-color: #1ff967;
+    margin-left: -55px;
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
+    padding-left: 0.25;
+    border-radius: 5px;
+}
+.key-benefit-text{
+    margin-left: 15px;
+}
+.key-benefit-text-2{
+    margin-left: 55px;
+}
+.key-benefit-text-3{
+    margin-left: 55px;
+}
+.key-benefit-paragraph{
+    margin-left: 5px;
+}
+#consideretion-header{
+    background-color: #0047AB;
+    border-radius: 10px;
+    font-family: "Ubuntu";
+    color: white;
+   
+}
+#consideretion-header h3{
+  font-size: 50px;
+}
+.consideretion-highlight{
+    color: #0047AB;
+}
+#framework-structure{
+    background-color: #0047AB;
+    color: white;
+    width: 100%;
+}
+#font-for-framework{
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 42px;
+}
+.arrow-deco{
+    margin-left: 15px;
+}
+#diver-deco{
+    background-color: #0047AB;
+    color: white;
+    margin-top: 50px;
+    border-radius: 15px;
+    width: 80%;
+    margin-left: 95px;
+}
+.diver-expo h4{
+    color: #0047AB;
+   
+}
+.invest-deco{
+    background-color: #0047AB;
+    color: white;
+    border-radius: 15px;
+}
+money{
+    font-size: 35px;
+}
+.port-deco h2{
+    color: #0047AB;
+    font-family: "Ubuntu";
+    font-size: 45px;
+    font-weight: 700;
+}
+.port-deco{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.port-shape{
+    background-color: #0047AB;
+    height: 300px;
+    width: 250px;
+    border-radius: 25px;
+}
+.port-shape h4{
+    color: white;
+    margin-top: 120px;
+}
+.number-deco{
+    z-index: 1;
+    background-color: #1ff967;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    margin-left: 75px;
+}
+.number-deco-2{
+    z-index: 1;
+    background-color:#0047AB;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    margin-left: 75px;
+}
+.port-shape-2{
+    background-color:#1ff967;
+    height: 300px;
+    width: 250px;
+    border-radius: 25px;
+}
+.port-bottom{
+    margin-top: -35px;
+}
+.clm-class{
+    margin: auto;
+}
+#margin-div{
+  margin-left: 130px;
+}
+
+@media only screen and (max-width: 430px) {
+    #landing-header{
+        font-size: 26px;
+    }
+    #landing-header-2{
+        font-size: 30px;
+    }
+    .mob-text h3{
+        font-size: 16px;
+        margin-top: -20px;
+        max-width: 70%;
+        z-index: 1;
+    }
+    #mob-header{
+        margin-top: -20px;
+    }
+    #landing-page-img{
+         height: 250px;
+         width: 180px;
+         margin-top: -300px;
+         margin-left: 235px;
+         z-index: -1;
+    }
+    .mob-size-h3 h3{
+        font-size: 16px;
+    }
+    .mob-size-h3{
+        width: 400px;
+    }
+    .approach-header{
+        margin: auto;
+    }
+    .image-mob-style img{
+        width: 170px;
+        height: 210px;
+        margin-left: -175px;
+    }
+    .mob-mill-deco{
+       margin-top: -280px;
+       margin-left: 200px;
+       
+    }
+    .Investment-famework{
+        visibility: hidden;
+    }
+    .key-benefit-text h4{
+        font-size: 15;
+    }
+    .key-benefit-paragraph{
+        margin-bottom: -30px;
+    }
+    #consideretion-header h3{
+        font-size: 16px;
+        text-align: center;
+    }
+    .key-benefit-text h4{
+        font-size: 15px;
+    }
+    #img-mill-deco img{
+        width: 350px;
+        height: 350px;
+    }
+    .top-div{
+        margin-top: -75px;
+    }
+    #heighlights{
+        margin-left: 60px;
+    }
+    .landing-lighlights  {
+        margin-bottom: 15px;
+    }
+    .landing-lighlights-2{
+        margin-bottom: 15px;
+    }
+    .landing-lighlights-3{
+        margin-bottom: 15px;
+    }
+    .approach-header h3{
+        font-size: 16px;
+    }
+    #h4-class{
+        font-size: 13px;
+    }
+    .dic-color h4{
+        font-size: 16px;
+    }
+    .content-class li{
+        font-size: 15px;
+    }
+    .dic-color-2 h4{
+        font-size: 16px;
+    }
+    #margin-div{
+        margin-left: 75px;
+    }
+    .sub-mobile-deco{
+        margin-bottom: 30px;
+    }
+    #sub-space{
+        padding-bottom: 80px;
+    }
+    #font-for-framework{
+        font-size: 30px;
+    }
+    #money{
+        font-size: 18px;
+    }
+ p{
+       font-size:14px
+    }
+  }
+  .color-decoration{
+   color: red;
+   background-color:#f9400d;
+  }
+ 
+ 

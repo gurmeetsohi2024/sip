@@ -1,0 +1,47 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<%- include('navbar.ejs') %>
+<div class="div">
+    <br>
+    <br>
+    <br>
+    <center><h3><b>Sip Transactions</b></h3></center>
+</div>
+<div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Trns Catagory</th>
+                      <th scope="col">Date of Trns</th>
+                      <th scope="col">Trns type</th>
+                      <th scope="col">Delete Transaction</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(let i=0; i<sipTransactionData.length; i++){%>
+                    <tr>
+                      <th scope="row"><%= i+1 %></th>
+                      <td><%= sipTransactionData[i].Sname %></td>
+                      <td><%= sipTransactionData[i].sipAmount %></td>
+                      <td><%= sipTransactionData[i].transactionCatagory %></td>
+                      <td><%= sipTransactionData[i].date.toLocaleString(undefined, {timeZone: 'America/New_York'}) %></td>
+                      <td><%= sipTransactionData[i].transType %></td>
+                      <td>
+                        <form action="/deleteTransactions" method="post">
+                          <input type="text" name="deleteId" value="<%= sipTransactionData[i]._id %>" hidden>
+                          <input class="btn btn-sm btn-danger" type="submit" value="Delete">
+                        </form>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>                
+                
+            </table>
+        </div>
+    </div>
+</div>

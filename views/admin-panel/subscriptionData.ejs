@@ -1,0 +1,46 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+
+<div class="container-fluide">
+    <div class="row">
+        <h3>Subscription Data</h3>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Currency</th>
+                      <th scope="col">Product</th>
+                      <th scope="col">Transaction Date</th>
+                      <th scope="col">Subscription Validity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <% for(i=0; i<subscription.length;i++){ %>
+                       
+                            <th scope="row"><%= i+1 %></th>
+                            <td><%= subscription[i].name %></td>
+                            <td><%= subscription[i].email %></td>
+                            <td><%= subscription[i].price/100 %></td>
+                            <td><%= subscription[i].paymentStatus %></td>
+                            <td><%= subscription[i].currency %></td>
+                            <td><%= subscription[i].paymentStatus %></td>
+                            <td><%= subscription[i].product %></td>
+                            <td><%= subscription[i].date %></td>
+                            <td><%= subscription[i].exp_date %></td>
+                          </tr>
+                      <% } %> 
+                    </tbody>
+            </table>
+            
+            
+        </div>
+    </div>
+</div>

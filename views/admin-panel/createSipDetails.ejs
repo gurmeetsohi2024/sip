@@ -1,0 +1,55 @@
+<%- include('link.ejs') %>
+<!-- css link -->
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+<div class="cointainer-fluid">
+  <br>
+  <br>
+  <br>
+    <div class="row">
+        <div class="col">
+            <center><h2>All SIP details</h2></center>
+            <div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">SIP Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Date of Creation</th>
+                        <th scope="col">Companies</th>
+                        <th scope="col">Add Stocks</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% sipDetails.forEach(element => {  %>
+                        <tr>
+                            <th scope="row"><%=  %></th>
+                            <td><%= element.name %></td>
+                            <td><%= element.status %></td>
+                            <td>@<%= element.details %></td>
+                            <td>@<%= element.date %></td>
+                            <td><a href="/sipCompanyDetails/?id=<%= element._id %>" class="btn btn-primary btn-sm ">Companies Details</a></td>
+                            <td><a href="/sipAddStocks/?id=<%= element._id %>" class="btn btn-success btn-sm">add SIP stocks</a></td>
+                            <td><a href="/updateSip/?id=<%= element._id %>" class="btn btn-warning btn-sm">Update</a></td>
+                            <td>
+                              <form action="/deleteFromSip" method="post">
+                                <input type="text" name="sipId" value="<%= element._id %>" hidden>
+                                <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+                              </form>
+                            </td>
+                          </tr>
+                     <% }); %>
+                      
+                    </tbody>
+                  </table>
+                
+            </div>
+        </div>
+    </div>
+</div>
+

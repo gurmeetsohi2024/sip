@@ -1,0 +1,374 @@
+<%- include('admin-panel/link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<link rel="stylesheet" href="/styles/content.css">
+<%- include('component/headerLogout.ejs') %>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+  body td {
+    font-size: 13px;
+    background-color: blue;
+  }
+</style>
+<br>
+<br>
+<br>
+<div class="container-fluid forTotalBody">
+    <div>
+      <center><h2>PORTFOLIO OVERVIEW</h2></center>
+      <br>
+    </div>
+    <div class="row">
+      <div class="row companyData">
+        
+        <div class="col-lg-3 companyDetails ">
+            
+            <% if(subscribeData.length>0){ %>
+          <h3 class="">Portfolio Value</h3>
+          <h3 id="portfolioValue"></h3>
+          
+          <% }else{ %>
+            <h3  class="">Portfolio Value</h3>
+            <i class="fa-sharp fa-solid fa-lock fa-4x" style="color: #FFD43B;"></i>
+            <h3 style="filter: blur(10px)" id="portfolioValue"></h3>
+            <% } %>
+           
+            
+        </div>
+        <div class="col-lg-3 companyDetails">
+            <% if(subscribeData.length>0){ %>
+          <h3>Cash Position</h3>
+          <h3><%= cashItem[0] %></h3>
+          <% }else{ %>
+            <h3>Cash Position</h3>
+            <i class="fa-sharp fa-solid fa-lock fa-4x" style="color: #FFD43B;"></i>
+          <h3 style="filter: blur(10px)"><%= cashItem[0] %></h3>
+          <% } %>
+        </div>
+        <div class="col-lg-3 companyDetails">
+            <% if(subscribeData.length>0){ %>
+          <h3>Cost of active Investment</h3>
+          <h3 id="xxActiveValue"> </h3>
+          <% }else{ %>
+            <h3>Cost of active Investment</h3>
+            <i class="fa-sharp fa-solid fa-lock fa-4x" style="color: #FFD43B;"></i>
+          <h3 style="filter: blur(10px)" id="xxActiveValue"> </h3>
+          <% } %>
+        </div>
+        <div class="col-lg-3 companyDetails">
+            <% if(subscribeData.length>0){ %>
+          <h3>Return On active Investment</h3>
+          <div class="row">
+            <div class="col">
+              <h3 id="returnOnActiveInvestment"></h3>
+            </div>
+            <div class="col">
+              <h3 id="returnInPerCentage"></h3>
+            </div>
+          </div>
+          <% }else{ %>
+            <h3>Return On active Investment</h3>
+            <i class="fa-sharp fa-solid fa-lock fa-4x" style="color: #FFD43B;"></i>
+            <h3 style="filter: blur(10px)" id="returnOnActiveInvestment"></h3>
+            <% } %>
+        </div>
+        <div class="col-lg-3 companyDetails">
+          <h3>Contribution</h3>
+          <h6><p><b>Monthly SIP</b></p></h6>
+          <h6><b><%= allocation[0].sip +" "+"USD"%></b></h6>
+        </div>
+        <div class="col-lg-3 companyDetails">
+          <h3>Allocation</h3>
+          <div class="row">
+            <div class="col">
+              <h6><p><b>Cash</b></p></h6>
+          <h6><b><%= allocation[0].cash+" " +"%"%></b></h6>
+            </div>
+            <div class="col">
+              <h6><p><b>Equity</b></p></h6>
+          <h6><b><%= allocation[0].equity +" " +"%"%></b></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br>
+       <div class="row">
+        <div class="col-lg-4">
+          <div class="chartDiv">
+            <center><h3>Share wise Investment</h3>  </center>
+            <% if(subscribeData.length>0){ %>
+            <div class="investmentBreakdownChart">
+            <canvas id="myChart"></canvas>
+            <% }else{ %>
+            <div class="investmentBreakdownChart">
+             <canvas style="filter: blur(10px)" id="myChart"></canvas>
+             <% } %>
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="chartDiv">
+            <center><h3>Sector distribution</h3></center>
+          <div class="investmentBreakdownChart">
+            <canvas id="myChartForSip"></canvas>
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="chartDiv">
+            <center><h3>Region</h3></center>
+          <div class="investmentBreakdownChart">
+            <canvas id="myChartForQuantity"></canvas>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+       
+   
+   <br>
+   <br>
+   <div>
+      <table class="table">
+         <thead>
+            
+           <tr>
+             <th scope="col">#</th>
+             <th scope="col">Status</th>
+             <th scope="col">Investment</th>
+             <th scope="col">SIP Start Date</th>
+             <th scope="col">SIP Amount</th>
+             <th scope="col">SIP Starting Price</th>
+             <th scope="col">Avarage Buying Price</th>
+             <th scope="col">Topup Amount</th>
+             <th scope="col">Overall Avarage Price</th>
+             <th scope="col">Total Quantity</th>
+             <th scope="col">Invested Amount</th>
+             <th scope="col">Current Price</th>
+             <th scope="col">Investment Value</th>
+             <th scope="col">Cash Out Value</th>
+             <th scope="col">Cash Out Date</th>
+             <th scope="col">Cash Out Price</th>
+             <th scope="col">Current Investment Value</th>
+             <th scope="col">Sector</th>
+             <th scope="col">Region</th>
+             
+             
+           </tr>
+          
+         </thead>
+         <tbody>
+            <% if(subscribeData.length>0){ %>
+                <%for (let i=0;i< stockNamePrice.length; i++){%>
+                    <tr>
+                     <th scope="row"><%= [i+1] %></th>
+                     <td> <%= modifiedAggData[i].sipStatus %></td>
+                     <td id="shareName"><%= modifiedAggData[i]._id %></td>
+                     <td><%= modifiedAggData[i].sipStartingDateTwo %></td>
+                     <td id="sipAmount"><%= modifiedAggData[i].sipAmount %></td>
+                     <td><%= modifiedAggData[i].firstSipPrice %></td>
+                     <td id="avarageBuyingPrice"><%= (modifiedAggData[i].sipAvaragePrice).toFixed(2)  %></td>
+                     <td><%= modifiedAggData[i].topupAmount %></td>
+                     <td id="overallAvaragePrice"><%= (( modifiedAggData[i].totalSipValue+modifiedAggData[i].totalLumpsumValue)/(modifiedAggData[i].totalSipShare+modifiedAggData[i].totalLumpsumpShare)).toFixed(2)  %></td>
+                     <td id="totalShare"><%=  (modifiedAggData[i].totalLumpsumpShare+modifiedAggData[i].totalSipShare).toFixed(2)%></td>
+                     <td id="costOfInvestment"><%= modifiedAggData[i].totalValue %></td>
+                     <td><%= stockNamePrice[i].regularMarketPrice %></td>
+                     <td id="investmentValue"><%=((stockNamePrice[i].regularMarketPrice )*(modifiedAggData[i].totalLumpsumpShare+modifiedAggData[i].totalSipShare)).toFixed(2)  %></td>
+                     <td><%= modifiedAggData[i].cashOutValue  %></td>
+                     <td> <%= modifiedAggData[i].cashOutDateTwo %></td>
+                     <td><%= modifiedAggData[i].cashOutPrice  %> </td>
+                     <td><%- (((stockNamePrice[i].regularMarketPrice )*(modifiedAggData[i].totalLumpsumpShare+modifiedAggData[i].totalSipShare))+modifiedAggData[i].cashOutValue).toFixed(2) %></td>
+                     <td id="sectorData"> <%= modifiedAggData[i].sector %></td>
+                     <td id="regionData"> <%= modifiedAggData[i].region %></td>
+                   </tr>
+                   <% } %>  
+            <% }else{ %> 
+                <center><h3>Subscribe to see all data</h3>
+                <a href="/payment/?id=<%= userId %>&email=<%= userEmail %>&packageId=<%= reqId %>" class="btn btn-success btn-lg button-deco"><b>Subscribe Now</b></a>
+                </center>
+                <br>
+                <%for (let i=0;i< stockNamePrice.length; i++){%>
+                    <tr>
+                     <th scope="row"><%= [i+1] %></th>
+                     <td style="filter: blur(10px)"> <%= modifiedAggData[i].sipStatus %></td>
+                     <td style="filter: blur(10px)" id="shareName"><%= modifiedAggData[i]._id %></td>
+                     <td style="filter: blur(10px)"><%= modifiedAggData[i].sipStartingDateTwo %></td>
+                     <td style="filter: blur(10px)" id="sipAmount"><%= modifiedAggData[i].sipAmount %></td>
+                     <td style="filter: blur(10px)"><%= modifiedAggData[i].firstSipPrice %></td>
+                     <td style="filter: blur(10px)" id="avarageBuyingPrice"><%= (modifiedAggData[i].sipAvaragePrice).toFixed(2)  %></td>
+                     <td style="filter: blur(10px)"><%= modifiedAggData[i].topupAmount %></td>
+                     <td style="filter: blur(10px)" id="overallAvaragePrice"><%= (( modifiedAggData[i].totalSipValue+modifiedAggData[i].totalLumpsumValue)/(modifiedAggData[i].totalSipShare+modifiedAggData[i].totalLumpsumpShare)).toFixed(2)  %></td>
+                     <td style="filter: blur(10px)" id="totalShare"><%=  (modifiedAggData[i].totalLumpsumpShare+modifiedAggData[i].totalSipShare).toFixed(2)%></td>
+                     <td style="filter: blur(10px)" id="costOfInvestment"><%= modifiedAggData[i].totalValue %></td>
+                     <td style="filter: blur(10px)"><%= stockNamePrice[i].regularMarketPrice %></td>
+                     <td style="filter: blur(10px)" id="investmentValue"><%=((stockNamePrice[i].regularMarketPrice )*(modifiedAggData[i].totalLumpsumpShare+modifiedAggData[i].totalSipShare)).toFixed(2)  %></td>
+                     <td style="filter: blur(10px)"><%= modifiedAggData[i].cashOutValue  %></td>
+                     <td style="filter: blur(10px)"> <%= modifiedAggData[i].cashOutDateTwo %></td>
+                     <td style="filter: blur(10px)"><%= modifiedAggData[i].cashOutPrice  %> </td>
+                     <td style="filter: blur(10px)"><%- (((stockNamePrice[i].regularMarketPrice )*(modifiedAggData[i].totalLumpsumpShare+modifiedAggData[i].totalSipShare))+modifiedAggData[i].cashOutValue).toFixed(2) %></td>
+                     <td style="filter: blur(10px)" id="sectorData"> <%= modifiedAggData[i].sector %></td>
+                     <td style="filter: blur(10px)" id="regionData"> <%= modifiedAggData[i].region %></td>
+                   </tr>
+                   <% } %>  
+            <% } %>
+          </tbody>
+       </table>
+       
+   </div>
+</div>
+
+
+<script >
+    
+  const shareName=document.querySelectorAll('#shareName');
+  shareNameData=[];
+  shareName.forEach((ele)=>{
+   const elementValue=ele.innerHTML;
+   shareNameData.push(ele.innerHTML);
+  //  console.log(shareNameData);
+  })
+ 
+ const companyData= document.querySelectorAll('#investmentValue');
+ totalInvestmentData=[];
+ let total = 0;
+ companyData.forEach((ele)=>{
+  const elementValue=ele.innerHTML;
+  totalInvestmentData.push(ele.innerHTML);
+  // console.log(totalInvestmentData);
+  //total Investment value calculation
+  const value = parseFloat(ele.innerHTML);
+  if(value && !isNaN(value)){
+    total += value;
+  }
+ });
+ 
+ const totalInvestment=document.querySelectorAll('#portfolioValue');
+ portfolioValue.innerHTML=total.toFixed(2);
+  const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: shareNameData,
+    datasets: [{
+      label: 'Investment value',
+      data: totalInvestmentData,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+</script>
+
+<script >
+
+ // calculation for sector data
+  const sectorDataAll= document.querySelectorAll('#sectorData');
+  sectorArray=[];
+  sectorDataAll.forEach((ele)=>{
+  sectorArray.push(ele.innerHTML);
+  })
+  const counts = {};
+  sectorArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+ const valueOfNumber= Object.values(counts);
+ const sectorNames= Object.keys(counts);
+//  console.log(valueOfNumber);
+ 
+   const ctxSip = document.getElementById('myChartForSip');
+ // chart for sector data 
+ new Chart(ctxSip, {
+   type: 'doughnut',
+   data: {
+     labels:sectorNames,
+     datasets: [{
+       label: 'Sector',
+       data:valueOfNumber,
+       borderWidth: 1
+     }]
+   },
+   options: {
+     scales: {
+       y: {
+         beginAtZero: true
+       }
+     }
+   }
+ });
+ </script>
+
+<script >
+ // for regional chart show
+  const regionDataFromChart= document.querySelectorAll('#regionData');
+  localRegion=[];
+  regionDataFromChart.forEach((ele)=>{
+    localRegion.push(ele.innerHTML);
+   console.log(localRegion);
+  })
+ 
+  // for counting the duplicate objects
+  var count = {};
+  localRegion.forEach(function (x) { count[x] = (count[x] || 0) + 1; });
+  const regionDataForChart=Object.values(count);
+  const regionalDataNames=Object.keys(count);
+  console.log(regionalDataNames)
+   const ctxbar = document.getElementById('myChartForQuantity');
+ 
+ new Chart(ctxbar, {
+   type: 'pie',
+   data: {
+     labels: regionalDataNames,
+     datasets: [{
+       label: 'Region',
+       data: regionDataForChart,
+       borderWidth: 1
+     }]
+   },
+   options: {
+     scales: {
+       y: {
+         beginAtZero: true
+       }
+     }
+   }
+ });
+ </script>
+ <script>
+  // for active investment calculation
+ const costOfActiveInvestment=document.querySelectorAll('#costOfInvestment');
+ 
+ const activeValue=[];
+ let sum=0;
+ costOfActiveInvestment.forEach((ele)=>{
+  const value=parseFloat(ele.innerHTML);
+  // console.log(ele)
+  activeValue.push(value);
+  if(value && !isNaN(value)){
+    sum += value;
+  }
+  
+ })
+
+ xxActiveValue.innerHTML=sum.toFixed(2);
+
+ // for return on active investment div
+ returnOnActiveInvestment.innerHTML=(total-sum).toFixed(2);
+ const lossGain= (total-sum).toFixed(2);
+ const returnOnInvestment= document.querySelectorAll('#returnOnActiveInvestment')
+ if (lossGain>0) {
+  returnOnActiveInvestment.innerHTML= "+"+returnOnActiveInvestment.innerHTML
+  returnOnActiveInvestment.style.color='#5BFF33';
+ } else {
+  returnOnActiveInvestment.style.color='#f49090';
+ }
+// 
+returnInPerCentage.innerHTML=(((total-sum)*100)).toFixed(2);
+
+</script>
+

@@ -1,0 +1,38 @@
+<%- include('component/link') %>
+<link rel="stylesheet" href="\styles\content.css">
+
+<%- include('component/pre-nav') %>
+<section id="callback-section">
+   
+
+    <div class="row callback-section">
+       <div class="col-lg-6 ">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
+            <center>
+            <i class="fa-duotone fa-solid fa-phone fa-6x" style="--fa-primary-color: #1f514e; --fa-secondary-color: #1f514e;"></i>
+            </center>
+        </div>
+        <br>
+        <center>
+        <h4>GET A CALLBACK FROM OUR EXECUTIVES</h4>
+        </center>
+       </div>
+       <div class="col-lg-6 ">
+        <br>
+        <br>
+        <br>
+        <form action="/callback" method="post">
+            <input type="text" class="form-deco" name="name" placeholder="Enter your name"><br>
+            <input type="text" class="form-deco" name="phone" placeholder="Enter your phone number"><br>
+            <input type="text" class="form-deco" name="email" placeholder="Enter your email "><br>
+            <textarea class="textarea-deco"  name="textarea" rows="4" cols="23" maxlength="300" placeholder="Write your query here. Max character supported is 300"></textarea><br>
+            <button  class="btn btn-lg btn-primary button-deco">Raise a Query</button>
+        </form>
+       </div>
+    </div>
+</section>

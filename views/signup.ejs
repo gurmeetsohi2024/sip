@@ -1,0 +1,68 @@
+<%- include('component/link') %>
+<link rel="stylesheet" href="\styles\content.css">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5">
+            <div>
+                <br>
+                <br>
+                <center>
+                    <img src="/img/signup-man.jpeg" height="550px" width="480px" alt="signup image">
+                </center>
+            </div>
+         </div>
+        <div class="col-lg-7">
+            <div>
+                <center>
+            <br>
+            <br>
+            <div class="signup-header">
+                <h3 style="color: blue;"><b>One step towards financial freedom !</b></h3>
+            </div>
+            <br>
+            <form action="/signup" method="post">
+              <input class="form-deco" type="text" name="name" placeholder="Enter your name">
+              <br>
+              <input class="form-deco" type="text" name="email" placeholder="Enter your email">
+              <br>
+              <input class="form-deco" type="text" name="whatsapp" placeholder="Enter your whatsapp number ">
+              <br>
+              <input class="form-deco" type="number" name="income" placeholder=" Annual income in USD ">
+              <br>
+              <input class="form-deco" type="password" name="password" placeholder="Create your password">
+              <br>
+              <input class="form-deco" type="password" name="repeatPassword" placeholder="Re-enter your password">
+              <br>
+              <!-- <lebel>Annual income</lebel>
+              <br>
+              <p>Value: <output id="value"></output></p>
+              <input class="form-deco" type="range" id="al-income" name="income" min="5000" max="500000" />
+              <br> -->
+              <input type="checkbox" name="t&c" value="" checked>
+              <lebel> I accept the t&c </lebel><br>
+              <input type="checkbox" name="t&c-for-whatsapp" value="" checked>
+              <lebel> Agree to use whatsapp  </lebel>
+              <br>
+              <button class="btn btn-primary btn-large button-deco">Sign Up</button>
+            </form>
+            <br>
+            <a href="/login">Already having account ? Log In here</a>
+        
+                </center>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    const value = document.querySelector("#value");
+const input = document.querySelector("#al-income");
+value.textContent = input.value;
+input.addEventListener("input", (event) => {
+  value.textContent = event.target.value;
+});
+
+</script>

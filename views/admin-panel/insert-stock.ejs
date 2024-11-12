@@ -1,0 +1,29 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+
+<div class="row">
+    <div class="portfolio-form">
+        <center>
+            <h3>Add stocks to your portfolio</h3>
+        </center>
+        <br>
+        
+        <form action="/create-portfolio" method="post">
+            <center>
+            <input class="form-deco" type="text" name="name" placeholder="enter stock name" id="input1">
+            <!-- <br>
+            <input class="form-deco" type="number" name="bid" placeholder="set bid price" id="input2">
+            <br>
+            <input class="form-deco" type="number" name="amount" placeholder="set amount" id="input3"> -->
+            
+            <br>
+            <br>
+            <!-- <button class="button-deco btn btn-primary">Submit</button> -->
+             <input type="submit" value="submit" class="btn btn-success button-deco">
+            
+            </center>
+        </form>
+    </div>
+</div>

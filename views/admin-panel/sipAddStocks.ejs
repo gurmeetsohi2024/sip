@@ -1,0 +1,96 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        
+       <div class="col-lg-6">
+        <div class="row">
+          <div class="row">
+            <center>
+              <br>
+              <br>
+             <h4>Details Of SIP</h4>
+             <br>
+             <h5><%= allDataSip.name %></h5>
+             <h5><%= allDataSip.details %></h5>
+             <h5><%= allDataSip.status %></h5>
+            </center>
+          </div>
+          <div class="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Status </th>
+                  <th scope="col">Starting Date</th>
+                  <th scope="col">Stock push date time</th>
+                  <th scope="col">Operation</th>
+                </tr>
+              </thead>
+            <% for(let i=0;i<allSipCreated.length;i++){ %>
+             <tbody>
+              <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><%= allSipCreated[i].Sname %></td>
+                <td><%= allSipCreated[i].status %></td>
+                <td><%= allSipCreated[i].sipStartingDate.toLocaleDateString("en-GB") %></td>
+                <td><%= allSipCreated[i].date %></td>
+                <td><a href="" class="btn btn-warning btn-sm">Pause Sip</a></td>
+              </tr>
+              </tbody>
+            <%} %>
+          </table>
+          </div>
+        </div>
+       </div>
+       <div class="col-lg-6">
+        <br>
+        <br>
+       <center>
+        <h4>Add Stocks to Sip</h4>
+        <div>
+           <form action="/sipPush" method="post">
+             <input class="form-deco" type="text" name="id" placeholder="Enter SIP amount" value="<%= queryId %>" hidden>
+               <br>
+             <lebel> transaction type</lebel>
+             <div>
+                 <input type="radio" id="" name="catagory" value="SIP" checked />
+                 <label for="huey">SIP</label>
+             </div>
+               
+               <input class="form-deco" type="text" name="name" placeholder="Enter Stock name">
+               <br>
+               <lebel>Choose SIP date to start</lebel>
+               <br>
+               <input class="form-deco" type="date" name="sipStartingDate" id="Test_DatetimeLocal">
+               <br>
+               <input class="form-deco" type="number" name="sipAmount" placeholder="Enter SIP amount">
+               <br>
+               <input class="form-deco" type="text" name="sector" placeholder="Enter Sector" >
+               <br>
+               <input class="form-deco" type="text" name="region" placeholder="Enter Region" >
+               <br>
+               <input class="button-deco" type="text" name="transType" value="buy" hidden>
+               <lebel>Choose status of SIP</lebel>
+               <div>
+                   <input type="radio" id="" name="status" value="Active" checked />
+                   <label for="huey">Active</label>
+                   <input type="radio" id="" name="status" value="Inactive" />
+                   <label for="huey">Inactive</label>
+               </div>
+               
+              
+               <button class="btn btn-primary button-deco" type="submit">Submit</button>
+           </form>
+           <a href="https://finance.yahoo.com/" target="_blank">Stock symbols @Yahoo Finance</a>
+        </div>
+       </center>
+       </div>
+    </div>
+</div>

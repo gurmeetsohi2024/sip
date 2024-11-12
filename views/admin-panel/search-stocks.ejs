@@ -1,0 +1,54 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="\styles\admin.css">
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+<div class="container-fluid ">
+    <div class="search-stock-header">
+        <div class="row">
+            <div class="col-lg-6">
+              <h1> Stock Scanner</h1>
+            </div>
+            <div class="col-lg-6">
+                <form action="/search-stock" method="post">
+                    <input class="form-deco" type="text" name="name" placeholder="Search for a company">
+                    <button class="btn btn-secondary ">Search</button>
+                </form>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <center><h2><%= StockDataForUser.longName %></h2><P>Market State :<%= StockDataForUser.marketState %> </P></center>
+                <div class="row">
+                    <div class="col-lg-8">
+                       <p>Exchange Name :<%= StockDataForUser.fullExchangeName %></p>  <p>Short Name: <%= StockDataForUser.shortName %></p>
+                        <p>Currency : <%= StockDataForUser.currency %></p>
+                    </div>
+                    <div class="col-lg-4">
+                       <p>Current Price :<%= StockDataForUser.regularMarketPrice %></p> 
+                      <p> Market Cap :<%= StockDataForUser.marketCap %></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <p>Trailing PE ratio :<%= StockDataForUser.trailingPE %></p> 
+                        <p>Trailing PE ratio :<%= StockDataForUser.trailingPE %></p>   
+                        <p>ROEC :<%= StockDataForUser.trailingPE %></p> 
+                    </div>
+                    <div class="col-lg-4">
+                        <p>52 week High :<%= StockDataForUser.fiftyTwoWeekHigh %></p> 
+                        <p>52 week Low :<%= StockDataForUser.fiftyTwoWeekLow %></p>  
+                        <p>Book Value :<%= StockDataForUser.bookValue %></p> 
+                    </div>
+                    <div class="col-lg-4">
+                        HIGH/LOW 
+                        <p>Divident Per Share : <%= StockDataForUser.dividendsPerShare %> </p>
+                        <p>Book Value :<%= StockDataForUser.bookValue %></p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

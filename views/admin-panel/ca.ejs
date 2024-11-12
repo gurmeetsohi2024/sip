@@ -1,0 +1,64 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<%- include('navbar.ejs') %>
+
+<div>
+    <div class="row">
+        <div>
+            <br>
+            <br>
+            <br>
+        <br>
+        <center><h3><b>Update monthly contribution and cash allocationData</b></h3></center>
+        <br>
+        <br>
+        </div>
+        <div class="col-lg-6">
+            <center>
+                <form action="/contribution-allocation" method="post">
+                    <input class="form-deco" type="number" name="sip" placeholder="Enter monthly SIP value">
+                    <br>
+                    <lebel>Do not add % sign </lebel>
+                    <br>
+                    <input class="form-deco" type="number" name="cashPerentage" placeholder="Enter cash perentage">
+                    <br>
+                    <lebel>Do not add % sign </lebel>
+                    <br>
+                    <input class="form-deco" type="number" name="equityPerentage" placeholder="Enter equity perentage">
+                    <br>
+                    <button class="btn btn-success button-deco">Submit</button>
+                </form>
+            </center>
+        </div>
+        <div class="col-lg-6">
+           
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <h3><b>Contribution</b></h3>
+                                <br>
+                                <h4>Monthly SIP</h4>
+                                <h4><b><%= data[0].sip %></b></h4>
+                            </div>
+                            <div class="col"><h3><b>Allocation</b></h3>
+                                <br>
+                            <div class="row">
+                                <div class="col">
+                                    <h4>Cash</h4>
+                                    <h4><b><%= data[0].cash %></b></h4>
+                                </div>
+                                <div class="col">
+                                    <h4>Equity</h4>
+                                    <h4><b><%= data[0].equity %></b></h4>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

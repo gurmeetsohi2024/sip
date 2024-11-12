@@ -1,0 +1,20 @@
+<%- include('component/link') %>
+<link rel="stylesheet" href="\styles\content.css">
+<% if(!sessionIDNum) {%>
+    <%- include('component/header') %>
+    <% } else{%>
+ <%- include('component/headerLogout') %>
+        <% } %>
+   
+<%- include('component/products-content') %>
+
+
+<!-- <div>
+    <div class="row">
+        <div class="col-lg-6"><h2>About package data</h2></div>
+        <div class="col-lg-6">
+            <h2>Subscription</h2>
+            <a href="/subscribe" class="btn btn-lg btn-primary">Subscribe Now</a>
+        </div>
+    </div>
+</div> -->

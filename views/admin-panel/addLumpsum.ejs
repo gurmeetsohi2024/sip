@@ -1,0 +1,35 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+               <center>
+                <div class="col">
+                    <h2>Buy More stocks</h2>
+                    <div>
+               </center>
+               <center>
+                
+                    <form action="/sipLumpsumpPush" method="post">
+                        <input class="form-deco" type="text" name="ssid" value="<%= rootid %>" readonly hidden>
+                          <br>
+                        <lebel> transaction type</lebel>
+                        <div>
+                            <input type="radio" id="" name="catagory" value="Lumpsum" checked />
+                            <label for="huey">Lumpsum</label>
+                        </div>
+                          <input class="form-deco" type="text" name="name" value="<%= stockNamm %>" readonly>
+                          <br>
+                          <input class="form-deco" type="text" name="price" value="<%= stockPPrice %>" readonly>
+                          <br>
+                          <input class="form-deco" type="text" name="amount" placeholder="Enter Lumpsum amount" value="">                 
+                          <br>
+                          <input class="btn btn-primary button-deco" type="submit" value="submit">
+                      </form>
+                
+               </center>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<link rel="stylesheet" href="\styles\content.css">
+
+<div>
+    <br>
+    <br>
+    <br>
+    <center>
+        <h3><b>Create a admin</b></h3>
+    <form action="/manageAdmin" method="post">
+       
+        <input class="form-deco" name="name" type="text" placeholder="Enter Name">
+        <br>
+        <input class="form-deco" name="email" type="email" placeholder="Enter email">
+        <br>
+        <input class="form-deco" name="password" type="text" placeholder="Make a password">
+        <br>
+        <input type="submit" class="btn btn-lg btn-success button-deco" value="Create">
+       
+    </form>
+    </center>
+</div>

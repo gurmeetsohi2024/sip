@@ -1,0 +1,40 @@
+<%- include('admin-panel/link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<link rel="stylesheet" href="/styles/content.css">
+<%- include('component/header.ejs') %>
+
+<div class="container-fluide">
+    <div class="row">
+        <br>
+        <br>
+        <center>
+            <div class="col">
+                <i class="fa-solid fa-circle-check fa-2xl" style="color: #63E6BE;"></i>
+                <h3>Payment has sucessfully made.</h3>
+                <br>
+                <h3>Transaction Details</h3>
+
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <center>
+                        <h3>Email: <%= paymentDetails[0].email %></h3>
+                        <h3>Name :<%= paymentDetails[0].name %></h3>
+                        <h3>price :<%=paymentDetails[0].price/100 +" "+ "USD" %></h3>
+                        <h3>Payment method: <%=paymentDetails[0].paymentMethod %></h3>
+                    </center>
+                </div>
+                <div class="col-lg-6">
+                    <center>
+                        <h3>Payment date :<%= paymentDetails[0].date.toLocaleDateString("en-GB") %></h3>
+                        <h3>Payment Status : <%= paymentDetails[0].paymentStatus %></h3>
+                        <h3>Product:<%= paymentDetails[0].product %></h3>
+                        <h3>Subscription expairy Date : <%=paymentDetails[0].exp_date.toLocaleDateString("en-GB") %></h3>
+                    </center>
+                </div>
+            </div>
+        </center>
+    </div>
+</div>

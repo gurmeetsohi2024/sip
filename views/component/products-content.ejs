@@ -1,0 +1,52 @@
+<%- include('link') %>
+<link rel="stylesheet" href="\styles\content.css">
+
+
+
+<section id="data-for-package">
+    <div class="main-product-heading">
+      <br>
+      <br>
+      <center><h2><b>Our Package</b></h2></center>
+      <div class="row">
+        <div class="package-decoration">
+            <% offerPackageData.forEach(element => {%>
+                <div class="col">
+                    <div class="row">
+                        
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <br>
+                               
+                                <center>
+                                    <img src="img/man.png" alt="man" height="400px" width="450px">
+                                </center>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="main-packages">
+                                    <center><strong><h3><%= element.name %></h3></strong>
+                                        <br>
+                                        <h4><%= element.highlight %></h4>
+                                        <br>
+                                        <h5><%= element.fld1 %></h5>
+                                        <h5><%= element.fld2 %></h5>
+                                        <h5><%= element.fld3 %></h5>
+                                        <h5><%= element.fld4 %> </h5>
+                                        <br>
+                                        <br>
+                                        <a href="/user-portfolio/?id=<%= element._id %>" class="btn btn-success button-deco explore-button"><h5><b>View Portfolio</b></h5></a>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+         
+      </div>
+     
+    </div>
+
+  </section>

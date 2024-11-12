@@ -1,0 +1,30 @@
+<%- include('component/link') %>
+<link rel="stylesheet" href="\styles\content.css">
+
+<div class="container-fluid">
+    <div class="row">
+       <center>
+        <div class="col">
+            <div class="card payment-card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Subscribe for 12 Months</h5>
+                  <p class="card-text">Package :<%= packageData[0].name %></p>
+                  <p class="card-text">Total Price :<%= (packageData[0].price)*12+" "+ "USD" %></p>
+                  <br>
+                  <br>
+                  <div>
+                    <form action="/checkout?userId=<%= userId %>&userEmail=<%= userEmail %>&packageId=<%= packageId %>&packageAmount=<%= (packageData[0].price)*12 %>" method="post">
+                        <button class="btn btn-success btn-lg button-deco">Buy Now @<%= (packageData[0].price)*12+" "+ "USD" %> </button>
+                    </form>
+                  </div>
+                  <br>
+                  <br>
+                </div>
+              </div>
+              
+    </div>
+       </center>
+         
+        </div>
+    </div>
+</div>

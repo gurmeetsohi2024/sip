@@ -1,0 +1,39 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+<div>
+    <div class="container-fluid">
+        <center>
+        <div class="row">
+            <h2>Create a Package</h2>
+            <div class="col">
+                <form action="/packages" method="post">
+                    
+                    <input type="text" class="form-deco" name="name" placeholder="Package Name" value="" required>
+                    <br>
+                    <input type="text" class="form-deco" name="highlight" placeholder="Package Highlights" value="" required>
+                    <br>
+                    <lebel>Package Details</lebel>
+                    <br>
+                    <input type="text" class="form-deco" name="fld1" placeholder="Package Details Field  : 1" value="">
+                    <br>
+                    <input type="text" class="form-deco" name="fld2" placeholder="Package Details Field :2" value="">
+                    <br>
+                    <input type="text" class="form-deco" name="fld3" placeholder="Package Details Field :3" value="">
+                    <br>
+                    <input type="text" class="form-deco" name="fld4" placeholder="Package Details Field :4" value="">
+                    <br>
+                    <input type="number" class="form-deco" name="price" placeholder="Package Price" value="" required>
+                    <br>
+                    <button class="btn btn-primary button-deco">Submit</button>
+                </form>
+            </div>
+           
+        </div>
+        </center>
+    </div>
+</div>

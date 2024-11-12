@@ -1,0 +1,144 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+<div>
+    <div class="row container-fluid">
+  <div class="row">
+    <div class="col">
+        <div class="portfolio-form">
+            <center>
+                <h3>Add stocks to your portfolio</h3>
+            </center>
+            <form action="/create-portfolio" method="post">
+                <input class="form-deco" type="text" name="name" placeholder="Add stock name" id="input1">
+                <!-- <br>
+                <input class="form-deco" type="number" name="bid" placeholder="set bid price" id="input2">
+                <br>
+                <input class="form-deco" type="number" name="amount" placeholder="set amount" id="input3"> -->
+                <!-- <button class="button-deco btn btn-primary">Submit</button> -->
+                 <input type="submit" value="Submit" class="btn btn-outline-success portfolio-button">
+            </form>
+        </div>
+    </div>
+  </div>
+        <div class="col">
+            <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">stock symbol</th>
+                      <th scope="col">Net Qty</th>
+                      <th scope="col">Buy Value</th>
+                      <th scope="col">Avg Price</th>
+                      <th scope="col">LTP </th>
+                      <th scope="col">Current Val</th>
+                      <th scope="col">Day P&L</th>
+                      <th scope="col">Day %</th>
+                      <th scope="col">Overall P&L</th>
+                      <th scope="col">Overall %</th>
+                      <th scope="col">Buy/Sell</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i = 0; i < allData.length; i++) { %>
+                    <tr>
+                        <th scope="row"><%= [i+1] %></th>
+                        <td><%= aggOutput[i]._id  %></td>
+                        <td><%= aggOutput[i].totalShares  %></td>
+                        <td id="totalShareValue"><%= aggOutput[i].totalShareValue  %></td> 
+                        <td><%= (aggOutput[i].totalShareValue/aggOutput[i].totalShares).toFixed(2) %></td> 
+                        <td><%=allData[i].regularMarketPrice; %></td> 
+                        <td><%= (allData[i].regularMarketPrice*aggOutput[i].totalShares).toFixed(2)  %></td>
+                        <td class="perCheck"><%= (allData[i].regularMarketPrice-allData[i].regularMarketPreviousClose).toFixed(2)  %></td>
+                        <td class="perCheck"><%= ((allData[i].regularMarketPrice-allData[i].regularMarketPreviousClose)/100).toFixed(2) %> %</td>
+                        <td class="perCheck" id="currentValue"><%= ((allData[i].regularMarketPrice*aggOutput[i].totalShares)-aggOutput[i].totalShareValue).toFixed(2)  %></td>
+                        <td class="perCheck" id="dayProfitLoss"><%=((((allData[i].regularMarketPrice*aggOutput[i].totalShares)-aggOutput[i].totalShareValue)*100)/aggOutput[i].totalShareValue).toFixed(2) %> </td> 
+                        <td> 
+                            <a href="/buy-more/?name=<%=aggOutput[i]._id %>&livePrice=<%=allData[i].regularMarketPrice%>" class="btn btn-sm btn-success">Buy</a>
+                            <a href="/sell-more/?name=<%=aggOutput[i]._id %>&livePrice=<%=allData[i].regularMarketPrice%>" class="btn btn-sm btn-warning">Sell</a>
+                        </td>
+                        <td>
+                          <form action="/deleteFromProfile" method="post">
+                            <input type="text" name="delete" value="<%=AdminPortfolioData[i]._id  %>" hidden>
+                            <input class="btn btn-sm btn-danger" type="submit" value="Delete">
+                         </form>
+                        </td>
+                        
+                      </tr>
+                      <% } %>
+                  </tbody>
+                  <tfoot>
+                    <th></th>
+                    <th >Total</th>
+                    <th></th>
+                    <th id="showtotalLossGain">Buy Value</th>
+                    <th></th>
+                    <th></th>
+                    <th id="showTotalCurrentValue">Current Value</th>
+                    <th id="dayProfitAdded">Day P&L</th>
+                    <th>Day %</th>
+                    <th>Overall P&L</th>
+                    <th>Overall %</th>
+
+                  </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+  const percheck = document.querySelectorAll('.perCheck');
+        percheck.forEach((ele)=>{
+            if(ele.innerHTML < 0){
+            ele.innerHTML = ele.innerHTML;
+            ele.style.color= "#f49090";
+            }else{
+            ele.innerHTML = '+' + ele.innerHTML ;
+            ele.style.color= "#23c702";
+            }
+        });
+    // for total amount
+    const totalLossGain = document.querySelectorAll("#totalShareValue");
+        let totalAmountLossGain = 0;
+        totalLossGain.forEach((ele)=>{
+            const value = parseFloat(ele.innerHTML);
+              if(value && !isNaN(value)){
+                  totalAmountLossGain += value;
+              }
+        })
+        const totalLossGainPercent = document.getElementById('showtotalLossGain');
+        showtotalLossGain.innerHTML = totalAmountLossGain.toFixed(2);
+        console.log(showtotalLossGain,"ssssssssssssssssss");
+
+     // total for current value
+      const currentValue= document.querySelectorAll('#currentValue'); 
+      let TotalCurrentValue=0;
+      currentValue.forEach((ele)=>{
+        const value = parseFloat(ele.innerHTML);
+              if(value && !isNaN(value)){
+                TotalCurrentValue += value;
+              }
+      })
+      const TotalCurrentValueOutput= document.getElementById('showTotalCurrentValue');
+      showTotalCurrentValue.innerHTML=TotalCurrentValue.toFixed(2);
+
+      // day profit/loss
+      const dayProfitLoss =document.querySelectorAll('#dayProfitLoss');
+      console.log(dayProfitLoss);
+      let dayProfit=0;
+      dayProfitLoss.forEach((ele)=>{
+        const value = parseFloat(ele.innerHTML);
+              if(value && !isNaN(value)){
+                dayProfit += value;
+              }
+      });
+       const totalDayProfitLoss=document.getElementById('dayProfitAdded');
+       dayProfitAdded.innerHTML=dayProfit.toFixed(2);
+       
+     
+</script>

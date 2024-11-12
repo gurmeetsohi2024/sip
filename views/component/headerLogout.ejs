@@ -1,0 +1,65 @@
+<%- include('link') %>
+<link rel="stylesheet" href="\styles\content.css">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    
+    
+    <!--import bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    
+<style>
+    html{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+#navbarTop h5{
+  opacity: 100%;
+  text-decoration: none;
+}
+#header-login-menu{
+  margin-top: 7px;
+  text-decoration: none;
+}
+</style>
+
+  </head>
+  <body>
+    <section class="navbar-header" >
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-header " id="header-section" style="background-color: #0047AB;">
+        <a class="navbar-brand" href="#"><h3><b>Em</b></h3></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+     <div class= "collapse navbar-collapse" id="navbarTop">
+     
+     <ul class="navbar-nav ms-auto">
+         <li class="nav-item header-login-menu" href="">
+              <a class="nav-link" href="/"><h5>Home</h5></a>
+         </li>
+         <li class="nav-item header-login-menu">
+             <a class="nav-link" href="/product"><h5>Packages</h5></a>
+         </li>
+         
+         <li class="header-login-menu nav-item">
+           <a class="nav-link" href="/logout"><h5>Log Out</h5></a>
+         </li>
+         <!-- <li class="nav-item">
+          <button class="btn btn-light btn-outline-success"><h5>Free Consultation</h5></button>
+       </li> -->
+         
+     </ul>
+     </div>
+ </nav>
+</section>
+  </body>
+</html>
+

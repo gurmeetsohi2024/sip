@@ -1,0 +1,36 @@
+<%- include('link.ejs') %>
+<link rel="stylesheet" href="/styles/admin.css">
+<!-- <meta http-equiv="refresh" content="60"> -->
+<%- include('navbar.ejs') %>
+<br>
+<br>
+<br>
+
+<div class="container-fluid">
+<div class="row">
+    
+    <div class="col">
+        <center>
+            <h2>ADD MORE STOCKS</h2>
+        <form action="/transactions" method="post">
+            <input class="form-deco" type="text" name="stockId" value="<%= StockRequest[0]._id %>" hidden>
+            <br>
+            <input class="form-deco" type="text" name="stockName" value="<%= StockRequest[0].name %>"  readonly>
+            <br>
+            <input class="form-deco" type="text" name="livePrice" value=" Price:<%= livePrice %>"  readonly>
+            <br>
+            <input class="form-deco" id="entryPrice" type="number" name="price" placeholder="Enter Price">
+            <br>
+            <input class="form-deco" id="quantityId" type="number" name="quantity" placeholder="Enter quantity">
+            <br>
+            <input class="form-deco" id="TransactionAmount" type="text" name="tAmount" value="Trans amount" placeholder="" readonly>
+            <br>
+            <input class="form-deco" type="text" name="transactionType" value="Buy" placeholder="" readonly>
+            <br>
+            <button class="btn btn-success button-deco">Submit</button>
+
+        </form>
+       </center>
+    </div>
+</div>
+</div>
